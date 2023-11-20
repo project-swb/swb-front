@@ -1,12 +1,8 @@
-
 <template>
-  <div class="col-md-12">
-    <THeHeaderNav/>
-    <RouterView/>
-  </div>
+    <Layout/>
 </template>
 <script setup>
-  import THeHeaderNav from "@/components/common/THeHeaderNav.vue";
+import Layout from "@/components/layout/Index.vue";
 </script>
 
 <style scoped>

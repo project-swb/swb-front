@@ -1,0 +1,95 @@
+ol, ul, li {list-style:none}
+
+img, button {border:0 none;
+    vertical-align:top;
+    background-color: transparent;}
+
+button:focus{outline: none;}
+
+.flexbox {
+    display:flex;
+}
+.contentbox {
+    width: 100%;
+    /* max-width: 1200px; */
+    margin: 0 auto;
+    padding: 0 10px;
+}
+.topmenu {
+    padding: 5px 0;
+}
+.topmenu .btn {
+    margin : 1px;
+}
+.topmenu .contentbox {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav {
+    padding: 8px 0;
+    background-color: #0168D9;
+}
+
+nav ul {
+    display: flex;
+}
+
+nav ul > li {
+    flex: 1;
+    text-align: center;
+}
+
+nav ul > li > button{
+    color: white;
+    font-size: 24px;
+    font-weight:700;
+    margin-top:15px;
+}
+
+/* footer 하단 고정 */
+#wrap{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.footerinfo {
+    /* max-width: 1200px; */
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    align-items : center;
+    background-color: #bebebe;
+    color: #fff;
+}
+
+.footer-logo {
+    font-size: 36px;
+}
+
+.footer-sub {
+    line-height : 40%;
+    margin-top : 10px;
+    padding-left : 20px;
+}
+
+.scrollTop {
+    width: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 9999;
+}
+
+.routerView {
+    margin-top:135px;
+}
