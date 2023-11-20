@@ -15,6 +15,15 @@ button:focus{outline: none;}
     margin: 0 auto;
     padding: 0 10px;
 }
+
+.contentbox ul {
+    padding : 0px;
+}
+
+.contentbox button {
+    width: 200px;
+}
+
 .topmenu {
     padding: 5px 0;
 }
@@ -82,14 +91,18 @@ footer {
     padding-left : 20px;
 }
 
-.scrollTop {
+/* Header 고정 */
+
+/* .scrollTop {
     width: 100%;
     position: fixed;
     left: 0;
     top: 0;
     z-index: 9999;
-}
+    background-color:#fff;
+} */
 
-.routerView {
-    margin-top:135px;
-}
+/* 헤더 상단 고정 원하면 margin-top은 scrollTop 사이즈에 맞춰서 */
+/* .routerView {
+    margin-top: 10px;
+} */

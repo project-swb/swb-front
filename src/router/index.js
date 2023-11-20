@@ -4,6 +4,7 @@ import BoardCreate from '@/components/board/BoardCreate.vue'
 import BoardUpdate from '@/components/board/BoardUpdate.vue'
 import BoardView from '@/views/BoardView.vue'
 import Redirect from '@/components/login/Redirect.vue'
+import chatView from '@/views/chatView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -34,6 +35,11 @@ const router = createRouter({
       path: '/oauth2/redirect',
       name: 'redirect',
       component: Redirect
+    },
+    {
+      path: '/chat',
+      name: 'chat',
+      component: chatView
     }
   ]
 })

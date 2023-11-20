@@ -22,7 +22,7 @@
                 <ul>
                     <li><button @click="goToCreate()">운동 영상 확인하기</button></li>
                     <li><button @click="goToReview()">영상 리뷰 게시판</button></li>
-                    <li><button>실시간 채팅</button></li>
+                    <li><button @click="goToChat()">실시간 채팅</button></li>
                 </ul>
             </div>
         </nav>
@@ -44,6 +44,9 @@ const goToReview = function() {
 }
 const goToCreate = function() {
     router.push({ name : 'boardCreate'});
+}
+const goToChat = function() {
+    router.push({ name: 'chat'})
 }
 
 
