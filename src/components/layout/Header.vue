@@ -4,7 +4,7 @@
         <!-- topmenu : 시스템 메뉴 -->
         <div class="topmenu">
             <div class="contentbox">
-                <div class="logo">©ShelterWellBeing</div>
+                <div class="logo"><b>©ShelterWellBeing</b></div>
                 <div class="system">
                     <div v-if="loginStore.isLoggedIn"> {{ loginStore.userInfo.name }}님 환영합니다.
                         <div @click="loginStore.logout" class="btn btn-info active" role="button">Logout</div>

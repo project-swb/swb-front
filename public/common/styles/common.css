@@ -25,7 +25,7 @@ button:focus{outline: none;}
 }
 
 .topmenu {
-    padding: 5px 0;
+    padding: 1px 0;
 }
 .topmenu .btn {
     margin : 1px;
@@ -37,7 +37,7 @@ button:focus{outline: none;}
 }
 
 nav {
-    padding: 8px 0;
+    padding: 0 0 1px 0;
     background-color: #0168D9;
 }
 
@@ -52,7 +52,7 @@ nav ul > li {
 
 nav ul > li > button{
     color: white;
-    font-size: 24px;
+    font-size: 18px;
     font-weight:700;
     margin-top:15px;
 }
@@ -74,7 +74,7 @@ footer {
     /* max-width: 1200px; */
     width: 100%;
     margin: 0 auto;
-    padding: 20px;
+    padding: 10px;
     display: flex;
     align-items : center;
     background-color: #bebebe;
@@ -86,9 +86,10 @@ footer {
 }
 
 .footer-sub {
-    line-height : 40%;
+    line-height : 20%;
     margin-top : 10px;
     padding-left : 20px;
+    font-size: 12px;
 }
 
 /* Header 고정 */
@@ -104,5 +105,5 @@ footer {
 
 /* 헤더 상단 고정 원하면 margin-top은 scrollTop 사이즈에 맞춰서 */
 /* .routerView {
-    margin-top: 10px;
+    padding-bottom: 10px;
 } */
