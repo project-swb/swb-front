@@ -1,6 +1,6 @@
 <template>
-    <div>
-        <button v-for="category in categoryStore.categoryList" :key="category.id">{{ category.name }}</button>
+    <div class="categories">
+        <div class="btn btn-secondary" v-for="category in categoryStore.categoryList" :key="category.id"># {{ category.name }}</div>
     </div>
 </template>
 
@@ -20,5 +20,11 @@ onMounted(() => {
 
 <style scoped>
 
+.categories {
+    padding-left:5px;
+}
+.btn-secondary{
+    margin:1px;
+}
 
 </style>

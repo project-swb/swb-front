@@ -1,7 +1,7 @@
 <template>
     <div>
-        <RouterView />
         <Category/>
+        <RouterView />
     </div>
 </template>
 
