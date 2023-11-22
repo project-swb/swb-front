@@ -1,8 +1,13 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import BoardList from '@/components/board/BoardList.vue'
-import BoardCreate from '@/components/board/BoardCreate.vue'
-import BoardUpdate from '@/components/board/BoardUpdate.vue'
-import BoardView from '@/views/BoardView.vue'
+import ReviewList from '@/components/review/ReviewList.vue'
+import ReviewCreate from '@/components/review/ReviewCreate.vue'
+import ReviewUpdate from '@/components/review/ReviewUpdate.vue'
+import ReviewView from '@/views/ReviewView.vue'
+import VideoList from '@/components/video/VideoList.vue'
+import VideoDetail from '@/components/video/VideoDetail.vue'
+import VideoCreate from '@/components/video/VideoCreate.vue'
+import VideoUpdate from '@/components/video/VideoUpdate.vue'
+import VideoView from '@/views/VideoView.vue'
 import Redirect from '@/components/login/Redirect.vue'
 import chatView from '@/views/chatView.vue'
 
@@ -11,23 +16,54 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      name: 'board',
-      component: BoardView,
+      name: 'review',
+      component: ReviewView,
+      // 상세보기도 만들어야 함
       children: [
         {
           path: '',
-          name: 'boardList',
-          component: BoardList
+          name: 'reviewList',
+          component: ReviewList
         },
         {
           path: 'create',
-          name: 'boardCreate',
-          component: BoardCreate
+          name: 'reviewCreate',
+          component: ReviewCreate
+        },
+        
+        {
+          path: 'update',
+          name: 'reviewUpdate',
+          component: ReviewUpdate
+        },
+      ]
+    },
+    {
+      path: '/video',
+      name: 'video',
+      component: VideoView,
+      // 여기부터 안 만들어져 있음
+      // 상세보기도 만들어야 함
+      children: [
+        {
+          path: '',
+          name: 'videoList',
+          component: VideoList
         },
         {
-          path: 'update/:id',
-          name: 'boardUpdate',
-          component: BoardUpdate
+          path: 'create',
+          name: 'videoCreate',
+          component: VideoCreate
+        },
+        {
+          path: ':videoId',
+          name: 'videoDetail',
+          component: VideoDetail
+        },
+        {
+          path: 'update',
+          name: 'videoUpdate',
+          component: VideoUpdate
         },
       ]
     },
@@ -40,7 +76,7 @@ const router = createRouter({
       path: '/chat',
       name: 'chat',
       component: chatView
-    }
+    },
   ]
 })
 

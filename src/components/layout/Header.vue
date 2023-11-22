@@ -4,7 +4,7 @@
         <!-- topmenu : 시스템 메뉴 -->
         <div class="topmenu">
             <div class="contentbox">
-                <div class="logo"><img src="src/assets/logo.png" style="width:80px; height:60px; margin:3px;"></div>
+                <div class="logo"><img src="@/assets/logo.png" style="width:80px; height:60px; margin:3px;"></div>
                 <div class="system">
                     <div v-if="loginStore.isLoggedIn"> {{ loginStore.userInfo.name }}님 환영합니다.
                         <div @click="loginStore.logout" class="btn btn-info active" role="button">Logout</div>
@@ -20,7 +20,7 @@
         <nav>
             <div class="contentbox">
                 <ul>
-                    <li><button @click="goToCreate()">운동 영상 확인하기</button></li>
+                    <li><button @click="goToVideo()">운동 영상 확인하기</button></li>
                     <li><button @click="goToReview()">영상 리뷰 게시판</button></li>
                     <li><button @click="goToChat()">실시간 채팅</button></li>
                 </ul>
@@ -40,10 +40,11 @@ const router = useRouter();
 console.log(loginStore.isLoggedIn)
 
 const goToReview = function() {
-    router.push({ name : 'boardList'});
+    router.push({ name : 'reviewList'});
 }
-const goToCreate = function() {
-    router.push({ name : 'boardCreate'});
+// 만약 비디오 리스트를 바로 보여주고 싶으면, 비디오 리스트로 가야 한다.
+const goToVideo = function() {
+    router.push({ name : 'videoList'});
 }
 const goToChat = function() {
     router.push({ name: 'chat'})

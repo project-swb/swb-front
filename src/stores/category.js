@@ -9,6 +9,10 @@ const REQUEST_URL = `${BASE_URL}/categories`
 export const useCategoryStore = defineStore('category', () => {
   
     const categoryList = ref([])
+    
+    // 현재 선택한 카테고리
+    const categoryId = ref('');
+
     // 모든 카테고리
     const getCategoryList = function (){
     axios.get(REQUEST_URL)
@@ -18,5 +22,10 @@ export const useCategoryStore = defineStore('category', () => {
         })
     }
 
-  return { categoryList, getCategoryList }
+    const getCategoryId = function (id) {
+      categoryId.value = id;
+    }
+
+
+  return { categoryList, getCategoryList, getCategoryId, categoryId }
 })

@@ -26,17 +26,17 @@
 
 <script setup>
 import { ref } from "vue";
-import { useBoardStore } from "@/stores/board";
+import { useReviewStore } from "@/stores/review";
 
-const store = useBoardStore()
-const board = ref({
+const store = useReviewStore()
+const review = ref({
     title: '',
     writer: '',
-    content: ''
+    contents: ''
 })
 
-const createBoard = function () {
-    store.createBoard(board.value)
+const createReview = function () {
+    store.createReview(review.value)
 }
 </script>
 
