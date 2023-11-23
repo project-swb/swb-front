@@ -14,6 +14,7 @@
             <div class = "video-footer" style="float:right; padding-right:30px; margin-top:80px">
                 <div v-if="loginStore.userInfo.id==videoStore.video.userId" class="btn btn-success" @click="updateVideo">수정</div>
                 <div v-if="loginStore.userInfo.id==videoStore.video.userId" class="btn btn-success" @click="deleteVideo">삭제</div>
+                <div class="btn btn-secondary" @click="updateLikeCnt">좋아요 {{ videoStore.video.likeCnt }}</div>
                 <div class="btn btn-secondary" @click="goToVideoList">&lt; 다른 영상 보러가기</div>
                 <div class="btn btn-secondary" @click="goToReviewList">리뷰 보러가기</div>
                 <div class="btn btn-secondary" @click="goToReviewWrite">리뷰 작성하기</div>
@@ -24,7 +25,7 @@
 
 <script setup>
 
-import { ref } from 'vue';
+import { ref, computed } from 'vue';
 import { useRoute, useRouter } from 'vue-router'
 import { useLoginStore } from "@/stores/login";
 import { useVideoStore } from "@/stores/video";
@@ -44,6 +45,13 @@ onMounted(() => {
     console.log(videoStore.video.videoId)
 })
 
+
+const updateLikeCnt = function() {
+    videoStore.updateLikeCnt(route.params.videoId)
+}
+
+const likeCnt = computed(() => videoStore.video.likeCnt)
+
 const deleteVideo = function () {
     console.log(route.params.videoId)
     axios.delete(`http://localhost:8080/api/v1/videos/${route.params.videoId}`)
@@ -56,25 +64,18 @@ const updateVideo = function () {
     router.push({ name: 'videoUpdate' })
 }
 
+
 const goToVideoList = function() {
     router.push('/video');
 }
 
-const searchInfo = {
-    "videoId" : Number(route.params.videoId)
-}
-
 const goToReviewList = function() {
-    router.push({name: 'reviewList'});
-    console.log('after routing')
-    console.log(searchInfo)
-    reviewStore.searchReviewList(searchInfo)
-    console.log(reviewStore.reviewList)
+    router.push({name: 'reviewList', query:{videoId: route.params.videoId}});
 }
 
-// const goToVideoList = function() {
-//     router.push('/video');
-// }
+const goToReviewWrite = function() {
+    router.push({name: 'reviewCreate', query:{videoId: route.params.videoId}});
+}
 
 </script>
 

@@ -18,7 +18,7 @@
                 <input type="text" id="url" v-model="video.url">
             </div>
             <div>
-                <button @click="createBoard">등록</button>
+                <button @click="createVideo">등록</button>
             </div>
         </fieldset>
         </div>
@@ -46,7 +46,13 @@ const makeThumbUrl = function (url) {
     return `https://img.youtube.com/vi/${url.split("/")[4]}/mqdefault.jpg`
 }
 
-const createBoard = function () {
+const makeEmbedUrl = function () {
+    const videoUrlId = video.value.url.split("?")[1].split("&")[0].slice(2)
+    video.value.url = `https://www.youtube.com/embed/${videoUrlId}`
+}
+
+const createVideo = function () {
+    makeEmbedUrl()
     video.value.thumbnail = makeThumbUrl(video.value.url)
     if(userInfo!=null){
         video.value.userId = userInfo.id;

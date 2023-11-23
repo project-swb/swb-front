@@ -1,35 +1,48 @@
 <template>
-<div>
-    <h1>게시글 수정</h1>
-    <div class="col-md-12">
-        <div class="col-md-4">
-            <form>
-            <div class="form-group">
-                <label for="id">글 번호</label>
-                <input type="text" class="form-control" id="id" value="글 번호" th:value="${post.getId()}" readonly>
+    <div>
+        <div class = "wrap">
+            <fieldset>
+            <legend>수정</legend>
+            <div>
+                <label for="title">제목 | </label>
+                <input type="text" id="title" v-model="reviewStore.review.title">
             </div>
-            <div class="form-group">
-                <label for="title">제목</label>
-                <input type="text" class="form-control" id="title" value="제목" th:value="${post.getTitle()}">
+            <div>
+                <label>카테고리 | </label>
+                <select v-model="reviewStore.review.categoryId">
+                    <option v-for="category in categoryStore.categoryList" :key="category.id" :value="category.id">{{ category.name }}</option>
+                </select>
             </div>
-            <div class="form-group">
-                <label for="author">작성자</label>
-                <input type="text" class="form-control" id="author" value="작성자" th:value="${post.getAuthor()}" readonly>
+            <div>
+                <label for="url">내용 | </label>
+                <input type="text" id="contents" v-model="reviewStore.review.contents">
             </div>
-            <div class="form-group">
-                <label for="content">내용</label>
-                <input type="text" class="form-control" id="content" value="내용" th:value="${post.getContent()}">
+            <div>
+                <button @click="updateReview">수정</button>
             </div>
-            </form>
-            <a href="/" role="button" class="btn btn-secondary">취소</a>
-            <button type="button" class="btn btn-primary" id="btn-update">수정 완료</button>
-            <button type="button" class="btn btn-danger" id="btn-delete">삭제</button>
+        </fieldset>
         </div>
     </div>
-</div>
 </template>
 
 <script setup>
+
+import { ref } from "vue";
+import { useReviewStore } from "@/stores/review";
+import { useLoginStore } from "@/stores/login";
+import { useCategoryStore } from "@/stores/category";
+import { useRoute } from "vue-router";
+
+const reviewStore = useReviewStore()
+const loginStore = useLoginStore()
+const categoryStore = useCategoryStore()
+const route = useRoute();
+
+const userInfo = loginStore.userInfo;
+
+const updateReview = function () {
+    reviewStore.updateReview()
+}
 
 </script>
 

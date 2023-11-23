@@ -1,25 +1,26 @@
 <template>
     <div>
-        <h1>게시글 등록</h1>
-        <div class="col-md-12">
-            <div class="col-md-4">
-                <form>
-                <div class="form-group">
-                    <label for="title">제목</label>
-                    <input type="text" class="form-control" id="title" placeholder="제목을 입력하세요">
-                </div>
-                <div class="form-group">
-                    <label for="author">작성자</label>
-                    <input type="text" class="form-control" id="author" placeholder="작성자를 입력하세요">
-                </div>
-                <div class="form-group">
-                    <label for="content">내용</label>
-                    <input type="text" class="form-control" id="content" placeholder="내용을 입력하세요">
-                </div>
-                </form>
-                <a href="/" role="button" class="btn btn-secondary">취소</a>
-                <button type="button" class="btn btn-primary" @click="createBoard">등록</button>
+        <div class = "wrap">
+            <fieldset>
+            <legend>등록</legend>
+            <div>
+                <label for="title">제목 | </label>
+                <input type="text" id="title" v-model="review.title">
             </div>
+            <div>
+                <label>카테고리 | </label>
+                <select v-model="review.categoryId">
+                    <option v-for="category in categoryStore.categoryList" :key="category.id" :value="category.id">{{ category.name }}</option>
+                </select>
+            </div>
+            <div>
+                <label for="url">내용 | </label>
+                <input type="text" id="contents" v-model="review.contents">
+            </div>
+            <div>
+                <button @click="createReview">등록</button>
+            </div>
+        </fieldset>
         </div>
     </div>
 </template>
@@ -27,19 +28,45 @@
 <script setup>
 import { ref } from "vue";
 import { useReviewStore } from "@/stores/review";
+import { useLoginStore } from "@/stores/login";
+import { useCategoryStore } from "@/stores/category";
+import { useRoute } from "vue-router";
 
-const store = useReviewStore()
+const reviewStore = useReviewStore()
+const loginStore = useLoginStore()
+const categoryStore = useCategoryStore()
+const route = useRoute();
+
+const userInfo = loginStore.userInfo;
+
 const review = ref({
     title: '',
     writer: '',
+    categoryId: '',
     contents: ''
 })
 
 const createReview = function () {
-    store.createReview(review.value)
+    review.value.videoId = Number(route.query.videoId)
+    if(userInfo!=null){
+        review.value.userId = userInfo.id;
+        review.value.writer = userInfo.name;
+    }
+    reviewStore.createReview(review.value)
 }
+
 </script>
 
+
 <style scoped>
+
+.wrap {
+    width : 100%;
+    height: 650px;
+    margin : 20px;
+}
+.btn {
+    margin-left:10px;
+}
 
 </style>

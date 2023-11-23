@@ -65,5 +65,14 @@ export const useVideoStore = defineStore('video', () => {
     })
     }
 
-  return { videoList, getVideoList, video, getVideo, createVideo, updateVideo, searchVideoList }
+    // 좋아요
+    // 향후 REST API 응답 수정 필요
+    const updateLikeCnt = function (id) {
+        axios.put(`${API_URL}/${id}`)
+        .then(() => {
+            video.value.likeCnt++;
+        })
+    }
+
+  return { videoList, getVideoList, video, getVideo, createVideo, updateVideo, searchVideoList, updateLikeCnt }
 })

@@ -65,5 +65,14 @@ export const useReviewStore = defineStore('review', () => {
     })
     }
 
-  return { reviewList, getReviewList, review, getReview, createReview, updateReview, searchReviewList }
+    // 좋아요
+    // 향후 REST API 응답 수정 필요
+    const updateLikeCnt = function (id) {
+        axios.put(`${API_URL}/${id}`)
+        .then(() => {
+            review.value.likeCnt++;
+        })
+    }
+
+  return { reviewList, getReviewList, review, getReview, createReview, updateReview, searchReviewList, updateLikeCnt }
 })

@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import ReviewList from '@/components/review/ReviewList.vue'
+import ReviewDetail from '@/components/review/ReviewDetail.vue'
 import ReviewCreate from '@/components/review/ReviewCreate.vue'
 import ReviewUpdate from '@/components/review/ReviewUpdate.vue'
 import ReviewView from '@/views/ReviewView.vue'
@@ -30,7 +31,11 @@ const router = createRouter({
           name: 'reviewCreate',
           component: ReviewCreate
         },
-        
+        {
+          path: ':reviewId',
+          name: 'reviewDetail',
+          component: ReviewDetail
+        },
         {
           path: 'update',
           name: 'reviewUpdate',
@@ -81,3 +86,32 @@ const router = createRouter({
 })
 
 export default router
+
+
+
+// vue router
+// CRUD
+
+// /video
+// /video/:videoId
+
+// /review
+
+
+// =>
+// /video/:videoId/review
+// /review?videoId=:videoId
+
+// /review?videoId=:videoId&searchKeyword=..&orderBy=..&orderByDir=+
+
+
+// pinia
+// /review?videoId=:videoId
+// 
+
+
+// server
+// GET /review
+// GET /review/:reviewId
+// POST /review
+// PUT /review, /review/:reviewId

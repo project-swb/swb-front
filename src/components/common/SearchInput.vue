@@ -4,7 +4,7 @@
             <label>검색 기준 :</label>
             <select v-model="searchInfo.key">
                 <option value='none'>없음</option>
-                <option value="writer">글쓰니</option>
+                <option value="writer">작성자</option>
                 <option value="title">제목</option>
                 <option value="content">내용</option>
             </select>
@@ -17,9 +17,10 @@
             <label>정렬 기준 :</label>
             <select v-model="searchInfo.orderBy">
                 <option value='none'>없음</option>
-                <option value="writer">글쓰니</option>
+                <option value="writer">작성자</option>
                 <option value="title">제목</option>
                 <option value="view_cnt">조회수</option>
+                <option value="like_cnt">좋아요</option>
             </select>
         </div>
         <div>
