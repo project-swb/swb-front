@@ -16,7 +16,7 @@
             </div>
             <div>
                 <label for="url">Embed URL | </label>
-                <input type="text" id="url" readonly>
+                <input type="text" id="url" :value= "videoStore.video.url" readonly>
             </div>
             <div>
                 <button @click="updateVideo">수정</button>

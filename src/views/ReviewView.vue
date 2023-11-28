@@ -12,4 +12,7 @@ import SearchInput from '@/components/common/SearchInput.vue';
 
 </script>
 
-<style scoped></style>
+
+<style scoped>
+
+</style>

@@ -16,7 +16,7 @@
             </div>
         </div>
     </div>
-    <div class="btn btn-success" @click="goToVideoCreate()">영상 등록하기</div>
+    <div class="btn btn-success btnRegist" @click="goToVideoCreate()">영상 등록하기</div>
 </template>
 
 <script setup>
@@ -57,6 +57,11 @@ const goToVideoCreate = function() {
     text-align: center;
     border : 1.5px dashed gray;
     padding : 20px;
+}
+
+.btnRegist {
+    float: right;
+    margin-right: 50px;
 }
 
 .wrap {
